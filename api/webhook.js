@@ -1,11 +1,22 @@
 // /api/webhook.js
 
+export const config = {
+  api: {
+    bodyParser: true,
+  },
+};
+
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    console.log('🛰 Payload recibido:', req.body);
+    const body = req.body;
 
-    // Puedes procesar los datos aquí y hacer llamadas a Make u otros
-    res.status(200).json({ success: true, message: "Webhook recibido correctamente por Ghost RUL:0002" });
+    console.log('✅ Payload recibido:', body);
+
+    res.status(200).json({
+      success: true,
+      recibido: body,
+      mensaje: "Ghost RUL:0002 ha recibido tu POST 🚀"
+    });
   } else {
     res.status(405).json({ error: 'Método no permitido' });
   }
