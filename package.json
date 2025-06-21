@@ -11,3 +11,6 @@
     "express": "^4.18.2"
   }
 }
+"dependencies": {
+  "micro": "^9.3.4"
+}
